@@ -1,6 +1,7 @@
 const shortenIt = document.querySelector(".special-btn");
 const result = document.querySelector(".result");
 shortenIt.addEventListener("click", shortenLink);
+result.addEventListener("click", copyToClipboard);
 
 class Http {
   async post(url, data) {
@@ -21,10 +22,13 @@ class UI {
     div.className = "result-box";
     div.innerHTML = `
     <a href="${link}" class="result-box__url">${link}</a>
-    <a href="https://rel.ink/${id}" class="result-box__shorten">https://rel.ink/${id}</a>
+    <a href="https://rel.ink/${id}" style="user-select:all" class="result-box__shorten">https://rel.ink/${id}</a>
     <button class="result-box__btn">Copy</btn>
     `;
     result.appendChild(div);
+  }
+  changeButtonText(copyBtn) {
+    document.querySelector(".result-box__btn").innerText = "COPIED!";
   }
 }
 const http = new Http();
@@ -39,6 +43,12 @@ function shortenLink(e) {
       .post("https://rel.ink/api/links/", data)
       .then((res) => ui.showResult(res.hashid, link))
       .catch((err) => console.log(err));
+  }
+  e.preventDefault();
+}
+function copyToClipboard(e) {
+  if (e.target.classList.contains("result-box__btn")) {
+    ui.changeButtonText();
   }
   e.preventDefault();
 }

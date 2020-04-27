@@ -394,7 +394,8 @@ body {
     color: $color-white;
     transition: all 0.3s;
     &:focus,
-    &:hover {
+    &:hover,
+    &:visited {
       background-color: $color-primary-2;
     }
   }
