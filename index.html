@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+
+    <title>Frontend Mentor | Shortly URL shortening API Challenge</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <!-- Mobile Nav -->
+    <div class="navbar-mobile">
+      <div class="navbar-mobile__logo">
+        <img src="images/logo.svg" alt="Shortly Logo" />
+      </div>
+      <div class="navbar-mobile__box">
+        <input
+          type="checkbox"
+          id="navi-toggle"
+          class="navbar-mobile__box-checkbox"
+        />
+        <label for="navi-toggle" class="navbar-mobile__box-label">
+          <span class="navbar-mobile__icon">&nbsp;</span>
+        </label>
+        <nav class="navigation">
+          <ul class="navigation__list">
+            <li class="navigation__list-item">
+              <a href="#" class="navigation__link">Features</a>
+            </li>
+            <li class="navigation__list-item">
+              <a href="#" class="navigation__link">Pricing</a>
+            </li>
+            <li class="navigation__list-item">
+              <a href="#" class="navigation__link">Resources</a>
+            </li>
+            <hr />
+            <br />
+            <li class="navigation__list-item">
+              <a href="#" class="navigation__link navigation__link--login"
+                >Login</a
+              >
+            </li>
+            <li class="navigation__list-item">
+              <a href="#" class="navigation__btn">Sign Up</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+
+    <!-- Desktop Nav -->
+    <nav class="navbar">
+      <div class="row">
+        <div class="navbar__container">
+          <div class="navbar-left">
+            <a href="#" class="navbar__brand">
+              <img src="images/logo.svg" alt="Shortly Logo" />
+            </a>
+            <div class="navbar-desktop">
+              <ul class="navbar-list">
+                <li class="navbar-list__item">
+                  <a href="#" class="navbar__link">Features</a>
+                </li>
+                <li class="navbar-list__item">
+                  <a href="#" class="navbar__link">Pricing</a>
+                </li>
+                <li class="navbar-list__item">
+                  <a href="#" class="navbar__link">Resources</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="navbar-right">
+            <ul class="navbar-list">
+              <li class="navbar-list__item">
+                <a href="#" class="navbar__link">Login</a>
+              </li>
+              <li class="navbar-list__item">
+                <a href="#" class="btn btn--rounded-nav">Sign Up</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <!-- header -->
+    <header class="header">
+      <div class="row">
+        <div class="col-1-of-2">
+          <div class="header__text-box">
+            <h1 class="heading-primary">
+              <span class="heading-primary--main u-mb-xs"
+                >More than just shorter links</span
+              >
+              <span class="heading-primary--sub u-mb-m"
+                >Build your brand’s recognition and get detailed insights on how
+                your links are performing.</span
+              >
+            </h1>
+            <a href="#" class="btn btn--rounded">Get Started</a>
+          </div>
+        </div>
+        <div class="col-1-of-2">
+          <img
+            src="images/illustration-working.svg"
+            alt="Working at the computer"
+            class="header__image"
+          />
+        </div>
+      </div>
+    </header>
+    <main>
+      <section class="section-form">
+        <div class="row">
+          <form class="form">
+            <div class="form__group">
+              <label for="link" class="form__label">Link</label>
+              <input
+                type="text"
+                class="form__input"
+                placeholder="Shorten a link here..."
+                id="link"
+              />
+            </div>
+            <div class="form__group">
+              <button type="submit" class="special-btn">Shorten It!</button>
+            </div>
+          </form>
+        </div>
+        <div class="row">
+          <div class="result"></div>
+        </div>
+      </section>
+
+      <section class="section-features">
+        <div class="u-center-text u-mb-l">
+          <h2 class="heading-secondary">Advanced Statistics</h2>
+          <p class="features-lead">
+            Track how your links are performing across the web with our advanced
+            statistics dashboard.
+          </p>
+        </div>
+        <div class="row">
+          <div class="col-1-of-3">
+            <div class="feature-card feature-card--1">
+              <div class="feature-card__img">
+                <img
+                  src="images/icon-brand-recognition.svg"
+                  alt="Brand recognition"
+                />
+              </div>
+              <div class="feature-card__text-box">
+                <h3 class="heading-tertiary">Brand Recognition</h3>
+                <p class="feature-card__text">
+                  Boost your brand recognition with each click. Generic links
+                  don’t mean a thing. Branded links help instil confidence in
+                  your content.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-1-of-3">
+            <div class="feature-card feature-card--2">
+              <div class="feature-card__img">
+                <img
+                  src="images/icon-detailed-records.svg"
+                  alt="Brand recognition"
+                />
+              </div>
+              <div class="feature-card__text-box">
+                <h3 class="heading-tertiary">Detailed Records</h3>
+                <p class="feature-card__text">
+                  Gain insights into who is clicking your links. Knowing when
+                  and where people engage with your content helps inform better
+                  decisions.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-1-of-3">
+            <div class="feature-card feature-card--3">
+              <div class="feature-card__img">
+                <img
+                  src="images/icon-fully-customizable.svg"
+                  alt="Brand recognition"
+                />
+              </div>
+              <div class="feature-card__text-box">
+                <h3 class="heading-tertiary">Fully Customizable</h3>
+                <p class="feature-card__text">
+                  Improve brand awareness and content discoverability through
+                  customizable links, supercharging audience engagement.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="section-cta">
+        <div class="cta__text-box">
+          <h4 class="heading-4">Boost your links today</h4>
+          <a href="#" class="btn btn--rounded">Get Started</a>
+        </div>
+      </section>
+    </main>
+    <footer class="footer">
+      <div class="row">
+        <div class="footer__flex-container">
+          <div class="footer__logo">
+            <a href="#" class="footer__link">
+              <img src="images/logo-white.svg" alt="Shortly Logo" />
+            </a>
+          </div>
+          <div class="footer__nav">
+            <ul class="footer__list footer__list--1">
+              <li class="footer__list-heading">Features</li>
+              <li class="footer__list-item">
+                <a href="#" class="footer__list-link">Link Shortening</a>
+              </li>
+              <li class="footer__list-item">
+                <a href="#" class="footer__list-link">Branded Links</a>
+              </li>
+              <li class="footer__list-item">
+                <a href="#" class="footer__list-link">Analytics</a>
+              </li>
+            </ul>
+            <ul class="footer__list footer__list--2">
+              <li class="footer__list-heading">Resources</li>
+              <li class="footer__list-item">
+                <a href="#" class="footer__list-link">Blog</a>
+              </li>
+              <li class="footer__list-item">
+                <a href="#" class="footer__list-link">Developers</a>
+              </li>
+              <li class="footer__list-item">
+                <a href="#" class="footer__list-link">Support</a>
+              </li>
+            </ul>
+            <ul class="footer__list footer__list--3">
+              <li class="footer__list-heading">Company</li>
+              <li class="footer__list-item">
+                <a href="#" class="footer__list-link">About</a>
+              </li>
+              <li class="footer__list-item">
+                <a href="#" class="footer__list-link">Our Team</a>
+              </li>
+              <li class="footer__list-item">
+                <a href="#" class="footer__list-link">Careers</a>
+              </li>
+              <li class="footer__list-item">
+                <a href="#" class="footer__list-link">Contact</a>
+              </li>
+            </ul>
+          </div>
+          <div class="footer__social">
+            <ul class="footer__social-list">
+              <li class="footer__social-list-item">
+                <a href="#" class="footer__social-list-link"
+                  ><img src="images/icon-facebook.svg" alt="Facebook Icon"
+                /></a>
+              </li>
+              <li class="footer__social-list-item">
+                <a href="#" class="footer__social-list-link"
+                  ><img src="images/icon-twitter.svg" alt="Twitter Icon"
+                /></a>
+              </li>
+              <li class="footer__social-list-item">
+                <a href="#" class="footer__social-list-link"
+                  ><img src="images/icon-pinterest.svg" alt="Pinterest Icon"
+                /></a>
+              </li>
+              <li class="footer__social-list-item">
+                <a href="#" class="footer__social-list-link"
+                  ><img src="images/icon-instagram.svg" alt="Instagram Icon"
+                /></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script src="js/app.js"></script>
+  </body>
+</html>

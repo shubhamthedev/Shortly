@@ -1,0 +1,722 @@
+//variables
+//color variables
+$color-primary-1: hsl(180, 66%, 49%);
+$color-primary-2: hsl(258, 27%, 26%);
+$color-secondary-1: hsl(0, 87%, 67%);
+$color-neutral-1: hsl(0, 0%, 75%);
+$color-neutral-2: hsl(258, 7%, 63%);
+$color-neutral-3: hsl(255, 11%, 22%);
+$color-neutral-4: hsl(260, 8%, 14%);
+$color-white: #fff;
+//grid variables
+$grid-width: 114rem;
+$gutter-horizontal: 6rem;
+$gutter-horizontal-small: 4rem;
+$gutter-vertical: 2rem;
+//mixins
+@mixin clearfix {
+  &::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+}
+//media
+@mixin respond($breakpoint) {
+  @if $breakpoint == small-phone {
+    @media only screen and (max-width: 23.4375em) {
+      @content;
+    } //350px
+  }
+  @if $breakpoint == phone {
+    @media only screen and (max-width: 37.5em) {
+      @content;
+    } //600px
+  }
+  @if $breakpoint == tab-port {
+    @media only screen and (max-width: 56.25em) {
+      @content;
+    } //900px
+  }
+  @if $breakpoint == laptop-m {
+    @media only screen and (max-width: 64em) {
+      @content;
+    } //1024px
+  }
+  @if $breakpoint == tab-land {
+    @media only screen and (max-width: 75em) {
+      @content;
+    } //1200px
+  }
+  @if $breakpoint == big-desktop {
+    @media only screen and (min-width: 112.5em) {
+      @content;
+    } //1800
+  }
+}
+//utilities
+.u-mb-xl {
+  margin-bottom: 8rem !important;
+}
+.u-mb-l {
+  margin-bottom: 6rem !important;
+}
+.u-mb-m {
+  margin-bottom: 4rem !important;
+}
+.u-mb-s {
+  margin-bottom: 2rem !important;
+}
+.u-mb-xs {
+  margin-bottom: 1rem !important;
+}
+.u-center-text {
+  text-align: center !important;
+}
+//basic style reset
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: inherit;
+}
+html {
+  font-size: 62.5%;
+  @include respond(tab-land) {
+    font-size: 56.25%;
+  }
+  @include respond(laptop-m) {
+    font-size: 50%;
+  }
+  @include respond(big-desktop) {
+    font-size: 75%; //1rem = 12, 12/16
+  }
+}
+body {
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  font-size: 1.8rem;
+  font-weight: 500;
+  color: $color-neutral-2;
+}
+//typography
+.heading-primary {
+  &--main {
+    display: block;
+    font-size: 7.7rem;
+    font-weight: 900;
+    line-height: 1.1;
+    letter-spacing: -1px;
+    color: $color-neutral-3;
+    @include respond(laptop-m) {
+      font-size: 6rem;
+      width: 80%;
+    }
+    @include respond(tab-port) {
+      font-size: 5rem;
+      width: 80%;
+      margin: 2rem auto;
+      text-align: center;
+    }
+  }
+  &--sub {
+    display: block;
+    font-size: 2rem;
+    font-weight: 300;
+    line-height: 1.5;
+    color: $color-neutral-2;
+    width: 95%;
+    @include respond(laptop-m) {
+      width: 80%;
+    }
+    @include respond(tab-port) {
+      width: 90%;
+      text-align: center;
+      margin: 0 auto;
+    }
+  }
+}
+.heading-secondary {
+  font-size: 4rem;
+  color: $color-neutral-3;
+}
+.heading-tertiary {
+  font-size: 2.2rem;
+  color: $color-neutral-4;
+  @include respond(phone) {
+    margin-top: 2rem;
+  }
+}
+.heading-4 {
+  font-size: 4rem;
+  color: $color-white;
+  margin-bottom: 3rem;
+  @include respond(small-phone) {
+    font-size: 3rem;
+  }
+}
+.features-lead {
+  width: 40%;
+  margin: 1rem auto;
+  line-height: 1.725;
+  @include respond(phone) {
+    width: 90%;
+    margin: 1rem auto 10rem auto;
+  }
+}
+//grid defined
+.row {
+  max-width: 114rem;
+  margin: 0 auto;
+  @include clearfix;
+  @include respond(tab-port) {
+    max-width: 60rem;
+  }
+  @include respond(phone) {
+    max-width: 50rem;
+  }
+  @include respond(small-phone) {
+    max-width: 44rem;
+  }
+  &:not(:last-child) {
+    margin-bottom: $gutter-horizontal;
+    @include respond(tab-port) {
+      margin-bottom: $gutter-horizontal-small;
+    }
+  }
+  [class^="col-"] {
+    float: left;
+    @include respond(tab-port) {
+      width: 100% !important;
+      float: none;
+    }
+    &:not(:last-child) {
+      margin-right: $gutter-vertical;
+      @include respond(tab-port) {
+        margin-right: 0;
+        margin-bottom: $gutter-vertical;
+      }
+    }
+  }
+  .col-1-of-2 {
+    width: calc((100% - #{$gutter-vertical}) / 2);
+  }
+  .col-1-of-3 {
+    width: calc((100% - (2 * #{$gutter-vertical})) / 3);
+  }
+}
+//components
+.btn {
+  cursor: pointer;
+  &,
+  &:link,
+  &:visited {
+    border: none;
+    text-decoration: none;
+    display: inline-block;
+    color: $color-white;
+    background-color: $color-primary-1;
+    transform: all 0.3s;
+    font-weight: 700;
+  }
+  &:hover,
+  &:active {
+    background-color: lighten($color-primary-1, 10);
+  }
+  &--rounded {
+    border-radius: 100rem;
+    padding: 1.25rem 3rem;
+    font-size: 2rem;
+  }
+  &--rounded-nav {
+    padding: 0.5rem 1.5rem;
+    border-radius: 100rem;
+    font-size: 1.4rem;
+  }
+  &--square {
+    border-radius: 1rem;
+    height: 6.4rem;
+    padding: 1.5rem 3rem;
+    font-weight: 700;
+    font-size: 2rem;
+  }
+}
+.special-btn {
+  & {
+    border: none;
+    text-decoration: none;
+    display: inline-block;
+    color: $color-white;
+    background-color: $color-primary-1;
+    transform: all 0.3s;
+    font-weight: 700;
+    font-size: 2rem;
+    padding: 1rem 2.5rem;
+    border-radius: 1rem;
+    cursor: pointer;
+    @include respond(tab-port) {
+      width: 100%;
+    }
+  }
+  &:focus,
+  &:hover {
+    background-color: lighten($color-primary-1, 10);
+  }
+}
+//main sections
+.header {
+  margin-top: -2rem;
+  position: relative;
+  overflow: hidden;
+  height: 95vh;
+
+  @include respond(tab-land) {
+    height: 100vh;
+    margin-bottom: 10rem;
+  }
+  @include respond(tab-port) {
+    height: auto;
+    margin-top: 0;
+    margin-bottom: 10rem;
+  }
+
+  &__text-box {
+    margin-top: 15rem;
+    @include respond(tab-port) {
+      margin-top: 40rem;
+      text-align: center;
+    }
+  }
+  &__image {
+    position: absolute;
+    top: 6rem;
+    right: -12rem;
+    @include respond(tab-land) {
+      right: -18rem;
+    }
+    @include respond(tab-port) {
+      left: 50%;
+      top: 0;
+      transform: translateX(-50%);
+      height: 30rem;
+      margin-top: 4rem;
+    }
+  }
+}
+//section form
+.section-form {
+  position: relative;
+  height: 20vh;
+  z-index: 10;
+}
+//form group
+.form {
+  padding: 5.2rem 6.4rem;
+  border-radius: 1rem;
+  background: $color-primary-2 url(../images/bg-shorten-desktop.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  @include respond(tab-port) {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  @include respond(phone) {
+    background: $color-primary-2 url(../images/bg-shorten-mobile.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  @include respond(small-phone) {
+    padding: 3rem 4rem;
+  }
+
+  &__label {
+    display: none;
+  }
+  &__input {
+    width: 80rem;
+    height: 6.4rem;
+    padding: 0.3rem 3.2rem 0;
+    border-radius: 1rem;
+    font-family: inherit;
+    font-size: 2rem;
+    color: inherit;
+    font-weight: inherit;
+    border: none;
+    margin-right: 4rem;
+    @include respond(tab-port) {
+      display: block;
+      width: 100%;
+      margin-bottom: 2rem;
+    }
+  }
+}
+.result {
+  margin-bottom: 5rem;
+}
+.result-box {
+  background-color: $color-white;
+  padding: 0.5rem 1rem;
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+  @include respond(tab-port) {
+    flex-direction: column;
+    padding: 0;
+  }
+
+  &__url:link,
+  &__url:visited,
+  &__shorten:link,
+  &__shorten:visited {
+    text-decoration: none;
+    color: $color-primary-1;
+    transition: color 0.3s;
+  }
+  &__url:active,
+  &__url:hover,
+  &__shorten:active,
+  &__shorten:hover {
+    color: $color-primary-2;
+  }
+  &__btn {
+    cursor: pointer;
+    background-color: $color-primary-1;
+    border: none;
+    padding: 1rem 2.5rem;
+    border-radius: 0.5rem;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: $color-white;
+    transition: all 0.3s;
+    &:focus,
+    &:hover {
+      background-color: $color-primary-2;
+    }
+  }
+}
+//section features
+.section-features {
+  background-color: #f0f1f6;
+  padding: 25rem 0;
+  margin-top: -5rem;
+}
+//feature card
+.feature-card {
+  background-color: $color-white;
+  padding: 8.1rem 3.2rem 3.9rem;
+  border-radius: 1rem;
+  font-size: 1.5rem;
+  position: relative;
+  @include respond(tab-port) {
+    text-align: center;
+  }
+  @include respond(phone) {
+    padding: 4rem;
+  }
+  @include respond(small-phone) {
+    padding: 4rem;
+  }
+  &--1,
+  &--2 {
+    margin-right: 2rem;
+    @include respond(tab-port) {
+      margin-right: 0;
+    }
+    &::after {
+      content: "";
+      display: block;
+      background-color: $color-primary-1;
+      height: 1rem;
+      width: 4rem;
+      z-index: 0;
+      position: absolute;
+      @include respond(tab-port) {
+        width: 9rem;
+      }
+      @include respond(small-phone) {
+        width: 9.5rem;
+      }
+    }
+  }
+  &--1 {
+    &::after {
+      top: 60%;
+      right: -4rem;
+      @include respond(tab-port) {
+        top: 120%;
+        right: 50%;
+        transform: translateX(50%) rotate(90deg);
+      }
+    }
+  }
+  &--2 {
+    transform: translateY(5rem);
+    @include respond(phone) {
+      transform: translateY(8rem);
+    }
+    &::after {
+      top: 40%;
+      right: -4rem;
+      @include respond(tab-port) {
+        top: 120%;
+        right: 50%;
+        transform: translateX(50%) rotate(90deg);
+      }
+    }
+  }
+  &--3 {
+    transform: translateY(10rem);
+    @include respond(phone) {
+      transform: translateY(15rem);
+    }
+  }
+  &__img {
+    position: absolute;
+    top: -4rem;
+    left: 3.2rem;
+    background-color: $color-primary-2;
+    width: 8.8rem;
+    height: 8.8rem;
+    border-radius: 50%;
+    text-align: center;
+    @include respond(tab-port) {
+      left: 50%;
+      transform: translateX(-50%);
+      width: 10rem;
+      height: 10rem;
+    }
+    @include respond(phone) {
+      top: -6rem;
+    }
+    img {
+      display: inline-block;
+      margin-top: 2.5rem;
+    }
+  }
+  &__text-box {
+    margin-top: -1rem;
+  }
+
+  &__text {
+    margin-top: 1.9rem;
+  }
+}
+//section cta
+.section-cta {
+  background: $color-primary-2 url(../images/bg-boost-desktop.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 6rem 0;
+  text-align: center;
+}
+//footer
+.footer {
+  background-color: $color-neutral-4;
+  padding: 5rem 0;
+  &__flex-container {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    @include respond(tab-port) {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+  &__logo {
+    @include respond(tab-port) {
+      margin-bottom: 2rem;
+    }
+  }
+  &__nav {
+    display: flex;
+    @include respond(phone) {
+      flex-direction: column;
+    }
+  }
+  &__list {
+    list-style: none;
+    @include respond(phone) {
+      margin-bottom: 2rem;
+    }
+    &--1,
+    &--2 {
+      margin-right: 8rem;
+      @include respond(phone) {
+        margin-right: 0;
+      }
+    }
+  }
+  &__list-heading {
+    color: $color-white;
+    font-weight: 700;
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+  }
+  &__list-item {
+    margin-bottom: 1rem;
+  }
+  &__list-link {
+    &:link,
+    &:visited {
+      text-decoration: none;
+      color: $color-neutral-1;
+      font-size: 1.6rem;
+      transition: all 0.3s;
+    }
+    &:hover,
+    &:active {
+      color: $color-primary-1;
+    }
+  }
+  &__social-list {
+    list-style: none;
+  }
+  &__social-list-item {
+    display: inline-block;
+    &:not(:last-child) {
+      margin-right: 1rem;
+    }
+  }
+}
+.navbar {
+  margin-top: 4rem;
+  @include respond(tab-port) {
+    display: none;
+  }
+  &__container {
+    display: flex;
+    justify-content: space-between;
+  }
+  &-left {
+    display: flex;
+  }
+
+  &-list {
+    list-style: none;
+    margin-left: 4rem;
+  }
+  &-list__item {
+    display: inline-block;
+    &:not(:last-child) {
+      margin-right: 2rem;
+    }
+  }
+  &__link {
+    &:link,
+    &:visited {
+      text-decoration: none;
+      color: $color-neutral-2;
+      font-size: 1.4rem;
+      font-weight: 700;
+      transition: all 0.3s;
+    }
+    &:hover,
+    &:active {
+      color: $color-neutral-4;
+    }
+  }
+}
+//Mobile Navigation
+.navbar-mobile {
+  display: none;
+  @include respond(tab-port) {
+    width: 60rem;
+    margin: 2rem auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    &__box-checkbox {
+      display: none;
+    }
+    &__box-label {
+      cursor: pointer;
+    }
+    &__icon {
+      position: relative;
+
+      &,
+      &::after,
+      &::before {
+        width: 3rem;
+        height: 2px;
+        background-color: $color-neutral-1;
+        display: inline-block;
+      }
+      &::after,
+      &::before {
+        content: "";
+        position: absolute;
+        left: 0;
+      }
+      &::after {
+        top: 1rem;
+      }
+      &::before {
+        top: -1rem;
+      }
+    }
+    .navigation {
+      position: absolute;
+      top: 7%;
+      left: 49%;
+      z-index: 100;
+      background-color: $color-primary-2;
+      padding: 3rem 8rem;
+      border-radius: 1rem;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+      &__list {
+        text-align: center;
+      }
+      &__list-item {
+        list-style: none;
+        &:not(:last-child) {
+          margin-bottom: 2rem;
+        }
+      }
+      &__link {
+        text-decoration: none;
+        color: $color-white;
+        font-weight: 700;
+      }
+      &__btn {
+        &:link,
+        &:visited {
+          display: block;
+          width: 100%;
+          background-color: $color-primary-1;
+          text-decoration: none;
+          color: $color-white;
+          padding: 1rem 3rem;
+          border-radius: 100rem;
+        }
+      }
+    }
+    &__box-checkbox:checked ~ .navigation {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+  @include respond(phone) {
+    width: 50rem;
+    .navigation {
+      left: 45%;
+    }
+  }
+  @include respond(small-phone) {
+    width: 40rem;
+    .navigation {
+      width: 40rem;
+      top: 10%;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+}
